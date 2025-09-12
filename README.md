@@ -1,1 +1,1 @@
-# aditya-0923.github.io
+# aditya-0923.io
