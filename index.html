@@ -1,52 +1,357 @@
-<!-- aditya-0923.github.io -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>aditya-0923</title>
-<link rel="icon" href="/favicon_io/favicon.ico"  sizes="16x16 32x32 48x48 64x64">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RLGE7QCPXQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RLGE7QCPXQ');
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Laado, cutiepie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    background: #111;
-    color: #eee;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 20px;
+  :root{
+    --bg-deep: #1a0620;
+    --bg-mid: #2b0a2e;
+    --bg-soft: #3a0f3d;
+    --pink-hot: #ff2d87;
+    --pink-light: #ff7ab8;
+    --pink-glow: #ff5da2;
+    --text-soft: #cbb9d1;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-border: rgba(255,255,255,0.12);
   }
-  h1 {
-    font-size: 1.8rem;
-    margin: 0;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 45%, var(--bg-soft) 100%);
+    color:#f3e9f5;
+    overflow-x:hidden;
+    position:relative;
   }
-  a {
-    color: #fff;
-    background: #007bff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 6px;
+  /* starfield */
+  .stars{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
   }
-  a:hover {
-    background: #0068d6;
+  .stars span{
+    position:absolute; width:2px; height:2px; background:#fff;
+    border-radius:50%; opacity:.5; animation:twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{0%,100%{opacity:.15} 50%{opacity:.8}}
+
+  section{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+    position:relative;
+    z-index:1;
+  }
+
+  .eyebrow{color:var(--text-soft); font-size:0.95rem; letter-spacing:.02em;}
+
+  .script{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    color:#f6ecf8;
+  }
+
+  /* ---------- HERO ---------- */
+  .mascot{
+    width:150px; height:150px; position:relative; margin-bottom:18px;
+    animation:bob 3.2s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}}
+  .mascot-body{
+    width:150px; height:150px; border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff, #f3e6f5 60%, #e9d3ee 100%);
+    position:relative; box-shadow:0 10px 40px rgba(255,45,135,.25);
+  }
+  .mascot-body::before, .mascot-body::after{ /* blush */
+    content:''; position:absolute; width:20px; height:12px; border-radius:50%;
+    background:#ffb0c8; top:78px; opacity:.8; filter:blur(1px);
+  }
+  .mascot-body::before{left:24px;}
+  .mascot-body::after{left:106px;}
+  .mascot-face{
+    position:absolute; top:60px; left:50%; transform:translateX(-50%);
+    width:24px; height:14px; border-radius:0 0 20px 20px; background:#d94f7a;
+  }
+  .mascot-eye{
+    position:absolute; top:52px; width:5px; height:5px; border-radius:50%; background:#3a1030;
+  }
+  .mascot-eye.l{left:52px;} .mascot-eye.r{left:92px;}
+  .mascot-hand{
+    position:absolute; width:34px; height:14px; background:#f3e6f5; border-radius:20px;
+    top:95px; left:-6px; transform-origin:right center;
+    animation:wave 1.6s ease-in-out infinite;
+  }
+  @keyframes wave{0%,100%{transform:rotate(0deg)} 50%{transform:rotate(-30deg)}}
+  .mascot-hearts{position:absolute; top:-6px; right:-8px; font-size:1.4rem; animation:float 2.4s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-6px) rotate(8deg)}}
+
+  h1.hero-title{
+    font-size:2.6rem;
+    line-height:1.15;
+    margin-bottom:10px;
+  }
+  .hero-sub{ color:var(--text-soft); font-size:1rem; margin-bottom:34px;}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:linear-gradient(90deg, var(--pink-hot), var(--pink-light));
+    color:#fff; border:none; border-radius:999px;
+    padding:16px 34px; font-size:1.05rem; font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    box-shadow:0 8px 30px rgba(255,45,135,.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 36px rgba(255,45,135,.5); }
+  .btn:active{ transform:translateY(0); }
+
+  /* ---------- METER ---------- */
+  .meter-label{ color:var(--text-soft); font-size:1.05rem; margin-bottom:26px;}
+  .meter-percent{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:5rem;
+    background:linear-gradient(90deg, var(--pink-light), var(--pink-hot));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    margin-bottom:30px;
+    min-height:90px;
+  }
+  .bar-track{
+    width:min(85vw, 420px); height:10px; border-radius:999px;
+    background:rgba(255,255,255,.08); overflow:visible; position:relative; margin-bottom:26px;
+  }
+  .bar-fill{
+    height:100%; border-radius:999px; width:0%;
+    background:linear-gradient(90deg, var(--pink-hot), var(--pink-light));
+    box-shadow:0 0 20px 2px rgba(255,90,160,.7);
+    transition:width .05s linear;
+  }
+  .warning{
+    color:#e7b3c9; font-weight:600; letter-spacing:.03em; font-size:.95rem;
+    opacity:0; transition:opacity .5s ease; margin-bottom:30px;
+  }
+  .warning.show{opacity:.85;}
+  #continueBtn{opacity:0; pointer-events:none; transition:opacity .5s ease;}
+  #continueBtn.show{opacity:1; pointer-events:auto;}
+
+  /* ---------- REVEAL CARDS ---------- */
+  .heart-spark{ font-size:2rem; margin-bottom:6px; }
+  .reveal-title{ font-size:1.7rem; margin-bottom:28px; }
+  .cards{ width:min(90vw, 460px); display:flex; flex-direction:column; gap:16px; margin-bottom:30px;}
+  .flip-card{
+    background:var(--card-bg); border:1px solid var(--card-border);
+    border-radius:16px; padding:26px 20px;
+    font-size:1.05rem; color:var(--text-soft);
+    cursor:pointer; user-select:none;
+    transition:background .3s ease, color .3s ease, transform .2s ease;
+    backdrop-filter:blur(6px);
+  }
+  .flip-card:hover{ transform:translateY(-2px); }
+  .flip-card.revealed{
+    color:#fff; background:rgba(255,45,135,.12); border-color:rgba(255,90,160,.4);
+  }
+  .flip-card .hint{ opacity:.6; font-size:.85rem; }
+
+  /* ---------- NOTE ---------- */
+  .note-title{ font-size:2rem; margin-bottom:6px; }
+  .divider{ width:60px; height:1px; background:rgba(255,255,255,.25); margin:14px 0 30px; position:relative;}
+  .divider::after{content:'✦'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:.7rem; color:var(--pink-light); background:var(--bg-soft); padding:0 6px;}
+  .note-box{
+    width:min(90vw, 460px);
+    background:linear-gradient(180deg, #f7dbe9, #f3c9dd);
+    color:#5a2340;
+    border-radius:22px;
+    padding:34px 28px 40px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
+  .cat-icon{
+    width:70px; height:70px; margin:0 auto 20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2.6rem;
+    background:#fff; border-radius:14px;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);
+  }
+  .note-text{
+    font-family:'Caveat', cursive;
+    font-size:1.5rem;
+    line-height:1.5;
+    white-space:pre-wrap;
+    text-align:left;
+    min-height:180px;
+  }
+  .note-text .cursor{
+    display:inline-block; width:2px; background:#5a2340; margin-left:2px;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  footer{
+    text-align:center; padding:40px 20px 60px; color:var(--text-soft); font-size:.85rem;
+    position:relative; z-index:1;
+  }
+
+  @media (max-width:480px){
+    h1.hero-title{font-size:2.1rem;}
+    .meter-percent{font-size:3.8rem;}
+    .note-text{font-size:1.3rem;}
   }
 </style>
 </head>
 <body>
-  <h1>aditya-0923</h1>
-  <a href="https://www.dropbox.com/scl/fo/sxeuw6n7axcojcpsz3qdh/ACwVwYwAS1RWbefz8ZpMD6Q?rlkey=hrf3z25fau7y3q07vub6tyqpp&st=c6osv952&dl=0" target="_blank">
-    Dropbox
-  </a>
-  <a href="https://github.com/aditya-0923/Aditya_0923" target="_blank">
-    Github
-  </a>
+
+<div class="stars" id="stars"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="mascot">
+    <div class="mascot-hearts">💝✨</div>
+    <div class="mascot-body">
+      <div class="mascot-eye l"></div>
+      <div class="mascot-eye r"></div>
+      <div class="mascot-face"></div>
+    </div>
+    <div class="mascot-hand"></div>
+  </div>
+  <h1 class="hero-title script">Hey Laado, cutiepie</h1>
+  <p class="hero-sub">Do you even know how cute you are?</p>
+  <button class="btn" id="checkBtn">let's check 🤗🥰</button>
+</section>
+
+<!-- METER -->
+<section id="meter">
+  <p class="meter-label">Measuring your cuteness&hellip; ⏳</p>
+  <div class="meter-percent" id="percentText">0%</div>
+  <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+  <p class="warning" id="warningText">⚠️ WARNING: TOO CUTE TO HANDLE</p>
+  <button class="btn" id="continueBtn">Continue →</button>
+</section>
+
+<!-- REVEAL CARDS -->
+<section id="reveal">
+  <div class="heart-spark">💖✨</div>
+  <h2 class="reveal-title script">Tap each one to reveal</h2>
+  <div class="cards">
+    <div class="flip-card" data-msg="I messed up... and I'm really sorry for that.">
+      <span class="hint">Tap to reveal 👆</span>
+    </div>
+    <div class="flip-card" data-msg="I promise I'll be better for you.">
+      <span class="hint">Tap to reveal 👆</span>
+    </div>
+    <div class="flip-card" data-msg="You mean the world to me. ❤️">
+      <span class="hint">Tap to reveal 👆</span>
+    </div>
+  </div>
+  <button class="btn" id="seeMoreBtn">See more →</button>
+</section>
+
+<!-- NOTE -->
+<section id="note">
+  <h2 class="note-title script">A little note for you</h2>
+  <div class="divider"></div>
+  <div class="note-box">
+    <div class="cat-icon">🐱</div>
+    <div class="note-text" id="noteText"></div>
+  </div>
+</section>
+
+<footer>made with 💕 for you</footer>
+
+<script>
+  // starfield
+  const starsEl = document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s = document.createElement('span');
+    s.style.left = Math.random()*100+'vw';
+    s.style.top = Math.random()*100+'vh';
+    s.style.animationDelay = (Math.random()*3)+'s';
+    starsEl.appendChild(s);
+  }
+
+  document.getElementById('checkBtn').addEventListener('click', ()=>{
+    document.getElementById('meter').scrollIntoView({behavior:'smooth'});
+  });
+  document.getElementById('seeMoreBtn').addEventListener('click', ()=>{
+    document.getElementById('note').scrollIntoView({behavior:'smooth'});
+  });
+
+  // cuteness meter animation, runs once when in view
+  let meterPlayed = false;
+  const meterSection = document.getElementById('meter');
+  const percentText = document.getElementById('percentText');
+  const barFill = document.getElementById('barFill');
+  const warningText = document.getElementById('warningText');
+  const continueBtn = document.getElementById('continueBtn');
+
+  function playMeter(){
+    if(meterPlayed) return;
+    meterPlayed = true;
+    let val = 0;
+    const target = 120;
+    const step = () => {
+      val += 2;
+      if(val > target) val = target;
+      percentText.textContent = val + '%';
+      barFill.style.width = Math.min(val,100) + '%';
+      if(val >= 100){
+        barFill.style.boxShadow = '0 0 30px 6px rgba(255,45,135,.9)';
+      }
+      if(val < target){
+        requestAnimationFrame(()=>setTimeout(step, 20));
+      } else {
+        warningText.classList.add('show');
+        continueBtn.classList.add('show');
+      }
+    };
+    step();
+  }
+
+  continueBtn.addEventListener('click', ()=>{
+    document.getElementById('reveal').scrollIntoView({behavior:'smooth'});
+  });
+
+  // flip cards
+  document.querySelectorAll('.flip-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      if(card.classList.contains('revealed')) return;
+      card.classList.add('revealed');
+      card.innerHTML = card.dataset.msg;
+    });
+  });
+
+  // typewriter note
+  let notePlayed = false;
+  const noteSection = document.getElementById('note');
+  const noteTextEl = document.getElementById('noteText');
+  const fullNote = "Sorry Laado 🥹 i know mene gusse m jyada boldiyaa me galat tha please baat krlo i am sorry baby\n\nPlease forgive me if I hurt you or wasted even a little of your precious time. I promise to always cherish you. 💕";
+
+  function playTypewriter(){
+    if(notePlayed) return;
+    notePlayed = true;
+    let i = 0;
+    noteTextEl.innerHTML = '<span class="txt"></span><span class="cursor">&nbsp;</span>';
+    const txtSpan = noteTextEl.querySelector('.txt');
+    const iv = setInterval(()=>{
+      txtSpan.textContent = fullNote.slice(0, i);
+      i++;
+      if(i > fullNote.length){ clearInterval(iv); }
+    }, 28);
+  }
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        if(entry.target === meterSection) playMeter();
+        if(entry.target === noteSection) playTypewriter();
+      }
+    });
+  }, {threshold:0.5});
+
+  observer.observe(meterSection);
+  observer.observe(noteSection);
+</script>
+
 </body>
 </html>
